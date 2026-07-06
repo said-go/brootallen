@@ -42,8 +42,8 @@ function HomePage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="section-title">Выберите направление</h2>
-          <p className="section-copy">Сначала пол, затем тип изделия. Так каталог ощущается ближе к реальному бутику.</p>
+          <h2 className="section-title">Линии и категории</h2>
+          <p className="section-copy">Одежда, обувь и аксессуары бутика, собранные по понятным разделам.</p>
           <div className={styles.categoryGrid}>
             {audiences.map((audience) => (
               <Link to="/catalog" key={audience} className={styles.categoryCard}>

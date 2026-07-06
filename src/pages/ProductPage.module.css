@@ -72,12 +72,6 @@
   color: #ead7ad;
 }
 
-.oldPrice {
-  color: #a8a8a8;
-  text-decoration: line-through;
-  margin-left: 0.5rem;
-}
-
 .description {
   color: #a8a8a8;
   line-height: 1.7;

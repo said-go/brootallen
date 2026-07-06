@@ -203,9 +203,7 @@ function CatalogPage() {
                         <div className={styles.priceRow}>
                           <div>
                             <span className={styles.price}>{product.price.toLocaleString('ru-RU')} ₽</span>
-                            {product.oldPrice ? <span className={styles.oldPrice}>{product.oldPrice.toLocaleString('ru-RU')} ₽</span> : null}
                           </div>
-                          {product.oldPrice ? <span className={styles.discount}>-{Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)}%</span> : null}
                         </div>
                       </Link>
                       <div className={styles.badges}>

@@ -1,4 +1,4 @@
-const imagePath = (fileName) => `${import.meta.env.BASE_URL}images/${fileName}`;
+﻿const imagePath = (fileName) => `${import.meta.env.BASE_URL}images/${fileName}`;
 
 const products = [
   {
@@ -7,7 +7,6 @@ const products = [
     category: 'Костюм',
     gender: 'Мужское',
     price: 18900,
-    oldPrice: 22900,
     description: 'Черный костюм с однобортным пиджаком и прямыми брюками. Лаконичная посадка для делового и вечернего образа.',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Black'],
@@ -27,7 +26,6 @@ const products = [
     category: 'Костюм',
     gender: 'Мужское',
     price: 14900,
-    oldPrice: 17900,
     description: 'Серый фактурный пиджак с мягкой линией плеча и спокойным премиальным оттенком.',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Ash', 'Stone'],
@@ -47,7 +45,6 @@ const products = [
     category: 'Верхняя одежда',
     gender: 'Мужское',
     price: 6900,
-    oldPrice: 8500,
     description: 'Плотная рубашка темно-синего оттенка с аккуратным воротником и чистой линией застежки.',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Midnight'],
@@ -67,7 +64,6 @@ const products = [
     category: 'Верхняя одежда',
     gender: 'Унисекс',
     price: 3900,
-    oldPrice: 4900,
     description: 'Белое поло свободной посадки из мягкого трикотажа. Базовая вещь для спокойного премиального гардероба.',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Ivory', 'White'],
@@ -87,7 +83,6 @@ const products = [
     category: 'Верхняя одежда',
     gender: 'Унисекс',
     price: 4200,
-    oldPrice: 5200,
     description: 'Молочное поло с мягким воротником и плотной тканью. Хорошо работает с брюками и костюмными комплектами.',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Ivory', 'Cream'],
@@ -107,7 +102,6 @@ const products = [
     category: 'Верхняя одежда',
     gender: 'Мужское',
     price: 4200,
-    oldPrice: 5200,
     description: 'Темно-синее поло с минималистичной посадкой и аккуратной отделкой рукавов.',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Midnight'],
@@ -127,7 +121,6 @@ const products = [
     category: 'Нижняя одежда',
     gender: 'Мужское',
     price: 7900,
-    oldPrice: 9900,
     description: 'Коричневые брюки с аккуратной стрелкой и посадкой, которая держит форму без лишней жесткости.',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Cocoa', 'Brown'],
@@ -146,7 +139,6 @@ const products = [
     category: 'Нижняя одежда',
     gender: 'Мужское',
     price: 7600,
-    oldPrice: 9400,
     description: 'Черные брюки прямого кроя с лаконичной посадкой. Подходят к пиджаку, рубашке и поло.',
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Black'],
@@ -166,7 +158,6 @@ const products = [
     category: 'Аксессуары',
     gender: 'Унисекс',
     price: 2900,
-    oldPrice: 3600,
     description: 'Графитовая кепка с плотной формой и аккуратной перфорацией. Спокойный аксессуар на каждый день.',
     sizes: ['One Size'],
     colors: ['Graphite', 'Black'],
@@ -186,7 +177,6 @@ const products = [
     category: 'Аксессуары',
     gender: 'Унисекс',
     price: 2900,
-    oldPrice: 3600,
     description: 'Кепка песочного оттенка с мягким козырьком и чистой формой. Хорошо сочетается с коричневой и серой палитрой.',
     sizes: ['One Size'],
     colors: ['Gold', 'Sand'],
@@ -206,7 +196,6 @@ const products = [
     category: 'Обувь',
     gender: 'Мужское',
     price: 12900,
-    oldPrice: 15900,
     description: 'Черные кожаные дерби с аккуратной шнуровкой, мягкой стелькой и золотистой фурнитурой.',
     sizes: ['S', 'M', 'L'],
     colors: ['Black'],
@@ -227,7 +216,6 @@ const products = [
     category: 'Обувь',
     gender: 'Мужское',
     price: 11900,
-    oldPrice: 14500,
     description: 'Оливковые лоферы с белой подошвой, мягкой посадкой и декоративным швом по носку.',
     sizes: ['S', 'M', 'L'],
     colors: ['Olive', 'Mink'],
@@ -245,3 +233,4 @@ const products = [
 ];
 
 export default products;
+

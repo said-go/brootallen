@@ -180,18 +180,6 @@
   font-weight: 700;
 }
 
-.oldPrice {
-  color: #a8a8a8;
-  text-decoration: line-through;
-  margin-left: 0.3rem;
-  font-size: 0.9rem;
-}
-
-.discount {
-  color: #c7a46b;
-  font-size: 0.9rem;
-}
-
 .badges {
   display: flex;
   gap: 0.5rem;
@@ -320,8 +308,6 @@
   }
 
   .price,
-  .oldPrice,
-  .discount,
   .badge {
     font-size: 0.78rem;
   }

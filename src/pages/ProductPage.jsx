@@ -49,7 +49,6 @@ function ProductPage() {
           <div className={styles.priceRow}>
             <div>
               <span className={styles.price}>{product.price.toLocaleString('ru-RU')} ₽</span>
-              {product.oldPrice ? <span className={styles.oldPrice}>{product.oldPrice.toLocaleString('ru-RU')} ₽</span> : null}
             </div>
             {product.isNew ? <span className={styles.badge}>Новинка</span> : null}
           </div>
