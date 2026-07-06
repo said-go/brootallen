@@ -94,3 +94,23 @@
     align-items: flex-start;
   }
 }
+
+@media (max-width: 380px) {
+  .inner {
+    padding: 0.8rem 0;
+  }
+
+  .logo {
+    font-size: 1.08rem;
+    letter-spacing: 0.16em;
+  }
+
+  .menuButton {
+    font-size: 1.35rem;
+  }
+
+  .nav {
+    inset: 4rem 0.5rem auto;
+    border-radius: 16px;
+  }
+}

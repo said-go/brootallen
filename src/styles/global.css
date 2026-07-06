@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -102,4 +103,14 @@ button:disabled {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(1200px, calc(100% - 1rem));
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
 }

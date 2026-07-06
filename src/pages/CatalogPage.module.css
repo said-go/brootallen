@@ -288,8 +288,53 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 380px) {
+  .page {
+    padding: 1rem 0 3rem;
+  }
+
+  .title {
+    font-size: 1.55rem;
+  }
+
   .catalogGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .productImage {
+    height: 165px;
+  }
+
+  .card {
+    border-radius: 14px;
+  }
+
+  .cardContent {
+    padding: 0.65rem;
+  }
+
+  .priceRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .price,
+  .oldPrice,
+  .discount,
+  .badge {
+    font-size: 0.78rem;
+  }
+
+  .badges {
+    gap: 0.35rem;
+  }
+
+  .badge {
+    padding: 0.25rem 0.4rem;
+  }
+
+  .filters {
+    max-height: 92vh;
   }
 }

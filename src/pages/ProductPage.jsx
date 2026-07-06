@@ -4,6 +4,8 @@ import { useFavorites } from '../contexts/FavoritesContext';
 import products from '../data/products';
 import styles from './ProductPage.module.css';
 
+const whatsappUrl = 'https://wa.me/79387778181';
+
 function ProductPage() {
   const { id } = useParams();
   const { favorites, toggleFavorite } = useFavorites();
@@ -76,7 +78,9 @@ function ProductPage() {
           </div>
 
           <div className={styles.actions}>
-            <Link className={styles.primaryButton} to="/contacts">{product.inStock ? 'Запросить примерку' : 'Уточнить поступление'}</Link>
+            <a className={styles.primaryButton} href={whatsappUrl} target="_blank" rel="noreferrer">
+              {product.inStock ? 'Написать в WhatsApp' : 'Уточнить поступление'}
+            </a>
             <button className={styles.secondaryButton} onClick={() => toggleFavorite(product.id)}>
               {isFavorite ? 'Удалить из избранного' : 'Добавить в избранное'}
             </button>

@@ -227,3 +227,54 @@
     height: 170px;
   }
 }
+
+@media (max-width: 380px) {
+  .page {
+    padding: 1rem 0 3rem;
+  }
+
+  .mainImage {
+    height: 360px;
+    border-radius: 16px;
+  }
+
+  .thumbRow {
+    gap: 0.6rem;
+  }
+
+  .thumb img {
+    height: 86px;
+  }
+
+  .details h1 {
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+
+  .optionButton,
+  .primaryButton,
+  .secondaryButton {
+    padding: 0.7rem 0.85rem;
+  }
+
+  .similarGrid {
+    gap: 0.65rem;
+  }
+
+  .similarCard {
+    border-radius: 14px;
+  }
+
+  .similarCard img {
+    height: 145px;
+  }
+
+  .similarCard div {
+    padding: 0.7rem;
+  }
+
+  .similarCard h3,
+  .similarCard p {
+    font-size: 0.85rem;
+  }
+}

@@ -247,3 +247,65 @@
     align-items: flex-start;
   }
 }
+
+@media (max-width: 380px) {
+  .hero {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+
+  .heroText {
+    font-size: 0.95rem;
+  }
+
+  .heroActions {
+    gap: 0.7rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    padding: 0.78rem 0.9rem;
+  }
+
+  .heroImage {
+    height: 300px;
+  }
+
+  .categoryGrid,
+  .productGrid,
+  .benefitGrid {
+    gap: 0.65rem;
+  }
+
+  .categoryCard {
+    min-height: 112px;
+    padding: 0.85rem 0.55rem;
+    text-align: center;
+  }
+
+  .categoryCard small {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+  }
+
+  .categoryCard span {
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+
+  .productCard img {
+    height: 190px;
+  }
+
+  .productInfo {
+    padding: 0.75rem;
+  }
+
+  .productInfo h3 {
+    font-size: 0.9rem;
+  }
+}
