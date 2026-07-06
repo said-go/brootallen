@@ -1,0 +1,19 @@
+.page {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.page h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+.button {
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  background: #5a1f26;
+  color: white;
+}

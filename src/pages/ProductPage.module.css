@@ -1,0 +1,218 @@
+.page {
+  padding: 2rem 0 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mainImage {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.thumbRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.thumb {
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+}
+
+.thumb img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+.activeThumb {
+  border-color: #5a1f26;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: #a8a8a8;
+  font-size: 0.8rem;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.oldPrice {
+  color: #a8a8a8;
+  text-decoration: line-through;
+  margin-left: 0.5rem;
+}
+
+.description {
+  color: #a8a8a8;
+  line-height: 1.7;
+}
+
+.optionBlock h2 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.optionGroup {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.optionButton,
+.quantityBox button,
+.primaryButton,
+.secondaryButton {
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.optionButton {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f2f2f2;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.optionActive {
+  background: #5a1f26;
+}
+
+.quantityBox {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+}
+
+.quantityBox button {
+  background: transparent;
+  color: #f2f2f2;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  background: #5a1f26;
+  color: #f2f2f2;
+}
+
+.secondaryButton {
+  background: rgba(255, 255, 255, 0.04);
+  color: #f2f2f2;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover,
+.optionButton:hover,
+.quantityBox button:hover {
+  transform: translateY(-2px);
+}
+
+.metaBox {
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a8a8a8;
+}
+
+.similarSection {
+  margin-top: 3rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.textLink {
+  color: #a8a8a8;
+}
+
+.similarGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.similarCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.similarCard img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.similarCard div {
+  padding: 1rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mainImage {
+    height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .thumbRow,
+  .similarGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,40 @@
+.page {
+  padding: 2rem 0 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.content button,
+.button {
+  background: #5a1f26;
+  color: white;
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

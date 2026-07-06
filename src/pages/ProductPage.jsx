@@ -1,0 +1,140 @@
+import { useMemo, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useCart } from '../contexts/CartContext';
+import products from '../data/products';
+import styles from './ProductPage.module.css';
+
+function ProductPage() {
+  const { id } = useParams();
+  const { addToCart, favorites, toggleFavorite } = useCart();
+  const [selectedColor, setSelectedColor] = useState('');
+  const [selectedSize, setSelectedSize] = useState('');
+  const [quantity, setQuantity] = useState(1);
+  const [activeImage, setActiveImage] = useState(0);
+  const [added, setAdded] = useState(false);
+
+  const product = useMemo(() => products.find((item) => item.id === Number(id)), [id]);
+  const similarProducts = useMemo(
+    () => products.filter((item) => item.category === product?.category && item.id !== product?.id).slice(0, 3),
+    [product]
+  );
+
+  if (!product) {
+    return (
+      <div className="container" style={{ padding: '4rem 0' }}>
+        <h1>Товар не найден</h1>
+        <Link to="/catalog" className={styles.primaryButton}>Вернуться в каталог</Link>
+      </div>
+    );
+  }
+
+  const isFavorite = favorites.includes(product.id);
+  const canAddToCart = product.inStock && selectedColor && selectedSize;
+
+  const handleAddToCart = () => {
+    if (!canAddToCart) {
+      return;
+    }
+
+    addToCart({ ...product, selectedColor, selectedSize }, quantity);
+    setAdded(true);
+  };
+
+  return (
+    <div className={`container ${styles.page}`}>
+      <div className={styles.grid}>
+        <div className={styles.gallery}>
+          <img src={product.images[activeImage]} alt={product.name} className={styles.mainImage} />
+          <div className={styles.thumbRow}>
+            {product.images.map((image, index) => (
+              <button key={image} className={`${styles.thumb} ${activeImage === index ? styles.activeThumb : ''}`} onClick={() => setActiveImage(index)} aria-label={`Показать фото ${index + 1}`}>
+                <img src={image} alt={`${product.name}, фото ${index + 1}`} />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.details}>
+          <p className={styles.eyebrow}>{product.category}</p>
+          <h1>{product.name}</h1>
+          <div className={styles.priceRow}>
+            <div>
+              <span className={styles.price}>{product.price.toLocaleString('ru-RU')} ₽</span>
+              {product.oldPrice ? <span className={styles.oldPrice}>{product.oldPrice.toLocaleString('ru-RU')} ₽</span> : null}
+            </div>
+            {product.isNew ? <span className={styles.badge}>Новинка</span> : null}
+          </div>
+          <p className={styles.description}>{product.description}</p>
+
+          <div className={styles.optionBlock}>
+            <h2>Цвет</h2>
+            <div className={styles.optionGroup}>
+              {product.colors.map((color) => (
+                <button key={color} className={`${styles.optionButton} ${selectedColor === color ? styles.optionActive : ''}`} onClick={() => setSelectedColor(color)}>
+                  {color}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.optionBlock}>
+            <h2>Размер</h2>
+            <div className={styles.optionGroup}>
+              {product.sizes.map((size) => (
+                <button key={size} className={`${styles.optionButton} ${selectedSize === size ? styles.optionActive : ''}`} onClick={() => setSelectedSize(size)}>
+                  {size}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.optionBlock}>
+            <h2>Количество</h2>
+            <div className={styles.quantityBox}>
+              <button onClick={() => setQuantity((value) => Math.max(1, value - 1))} aria-label="Уменьшить количество">−</button>
+              <span>{quantity}</span>
+              <button onClick={() => setQuantity((value) => value + 1)} aria-label="Увеличить количество">+</button>
+            </div>
+          </div>
+
+          <div className={styles.actions}>
+            <button className={styles.primaryButton} onClick={handleAddToCart} disabled={!canAddToCart}>
+              {product.inStock ? 'Добавить в корзину' : 'Нет в наличии'}
+            </button>
+            <button className={styles.secondaryButton} onClick={() => toggleFavorite(product.id)}>
+              {isFavorite ? 'Удалить из избранного' : 'Добавить в избранное'}
+            </button>
+          </div>
+          {added ? <p className={styles.description}>Товар добавлен в корзину.</p> : null}
+          {!canAddToCart && product.inStock ? <p className={styles.description}>Выберите цвет и размер перед добавлением.</p> : null}
+
+          <div className={styles.metaBox}>
+            <p><strong>Состав:</strong> {product.material}</p>
+            <p><strong>Доставка:</strong> Бесплатно по Москве и Санкт-Петербургу, доставка по России от 2 дней.</p>
+            <p><strong>Возврат:</strong> 14 дней на обмен и возврат при сохранности товара.</p>
+          </div>
+        </div>
+      </div>
+
+      <section className={styles.similarSection}>
+        <div className={styles.sectionHeader}>
+          <h2>Похожие товары</h2>
+          <Link to="/catalog" className={styles.textLink}>В каталог</Link>
+        </div>
+        <div className={styles.similarGrid}>
+          {similarProducts.map((item) => (
+            <Link key={item.id} to={`/product/${item.id}`} className={styles.similarCard}>
+              <img src={item.images[0]} alt={item.name} />
+              <div>
+                <h3>{item.name}</h3>
+                <p>{item.price.toLocaleString('ru-RU')} ₽</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default ProductPage;
