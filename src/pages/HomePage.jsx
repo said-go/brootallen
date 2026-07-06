@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import products from '../data/products';
 import styles from './HomePage.module.css';
 
-const categories = ['Мужское', 'Женское', 'Верхняя одежда', 'Аксессуары'];
+const audiences = ['Женское', 'Мужское', 'Унисекс'];
+const categories = ['Аксессуары', 'Обувь', 'Костюм', 'Верхняя одежда', 'Нижняя одежда'];
 const highlights = [
   'Эксклюзивные подборки',
   'Бесплатная доставка от 5000 ₽',
@@ -41,11 +42,20 @@ function HomePage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="section-title">Категории</h2>
-          <p className="section-copy">Подборки для каждой стороны вашего гардероба.</p>
+          <h2 className="section-title">Выберите направление</h2>
+          <p className="section-copy">Сначала пол, затем тип изделия. Так каталог ощущается ближе к реальному бутику.</p>
+          <div className={styles.categoryGrid}>
+            {audiences.map((audience) => (
+              <Link to="/catalog" key={audience} className={styles.categoryCard}>
+                <small>Линия</small>
+                <span>{audience}</span>
+              </Link>
+            ))}
+          </div>
           <div className={styles.categoryGrid}>
             {categories.map((category) => (
               <Link to="/catalog" key={category} className={styles.categoryCard}>
+                <small>Изделия</small>
                 <span>{category}</span>
               </Link>
             ))}

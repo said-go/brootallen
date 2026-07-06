@@ -1,17 +1,19 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useCart } from '../contexts/CartContext';
+import { useFavorites } from '../contexts/FavoritesContext';
 import products from '../data/products';
 import styles from './CatalogPage.module.css';
 
-const categories = ['Мужское', 'Женское', 'Верхняя одежда', 'Аксессуары'];
+const genders = ['Женское', 'Мужское', 'Унисекс'];
+const categories = ['Аксессуары', 'Обувь', 'Костюм', 'Верхняя одежда', 'Нижняя одежда'];
 const sizes = ['XS', 'S', 'M', 'L', 'XL', 'One Size'];
 const colors = ['Black', 'Burgundy', 'Ash', 'Gold', 'Ivory', 'Midnight', 'Cocoa', 'Graphite', 'Cinder'];
 const maxPrice = Math.max(...products.map((product) => product.price));
 
 function CatalogPage() {
-  const { favorites, toggleFavorite } = useCart();
+  const { favorites, toggleFavorite } = useFavorites();
   const [query, setQuery] = useState('');
+  const [gender, setGender] = useState('');
   const [category, setCategory] = useState('');
   const [size, setSize] = useState('');
   const [color, setColor] = useState('');
@@ -25,6 +27,7 @@ function CatalogPage() {
   const filteredProducts = useMemo(() => {
     const result = products.filter((product) => {
       const matchesQuery = product.name.toLowerCase().includes(query.trim().toLowerCase());
+      const matchesGender = !gender || product.gender === gender;
       const matchesCategory = !category || product.category === category;
       const matchesSize = !size || product.sizes.includes(size);
       const matchesColor = !color || product.colors.some((item) => item.toLowerCase() === color.toLowerCase());
@@ -33,7 +36,7 @@ function CatalogPage() {
       const matchesNew = !showNewOnly || product.isNew;
       const matchesPopular = !showPopularOnly || product.isPopular;
 
-      return matchesQuery && matchesCategory && matchesSize && matchesColor && matchesPrice && matchesStock && matchesNew && matchesPopular;
+      return matchesQuery && matchesGender && matchesCategory && matchesSize && matchesColor && matchesPrice && matchesStock && matchesNew && matchesPopular;
     });
 
     result.sort((a, b) => {
@@ -54,10 +57,11 @@ function CatalogPage() {
     });
 
     return result;
-  }, [category, color, inStockOnly, price, query, showNewOnly, showPopularOnly, size, sortBy]);
+  }, [category, color, gender, inStockOnly, price, query, showNewOnly, showPopularOnly, size, sortBy]);
 
   const resetFilters = () => {
     setQuery('');
+    setGender('');
     setCategory('');
     setSize('');
     setColor('');
@@ -95,7 +99,17 @@ function CatalogPage() {
           </label>
 
           <label className={styles.field}>
-            <span>Категория</span>
+            <span>Для кого</span>
+            <select value={gender} onChange={(event) => setGender(event.target.value)}>
+              <option value="">Все</option>
+              {genders.map((item) => (
+                <option key={item} value={item}>{item}</option>
+              ))}
+            </select>
+          </label>
+
+          <label className={styles.field}>
+            <span>Тип изделия</span>
             <select value={category} onChange={(event) => setCategory(event.target.value)}>
               <option value="">Все</option>
               {categories.map((item) => (
@@ -179,7 +193,7 @@ function CatalogPage() {
                     </Link>
                     <div className={styles.cardContent}>
                       <div className={styles.cardTop}>
-                        <span className={styles.category}>{product.category}</span>
+                        <span className={styles.category}>{product.gender} · {product.category}</span>
                         <button className={styles.favoriteButton} onClick={() => toggleFavorite(product.id)} aria-label={isFavorite ? 'Удалить из избранного' : 'Добавить в избранное'}>
                           {isFavorite ? '♥' : '♡'}
                         </button>

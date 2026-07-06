@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useCart } from '../contexts/CartContext';
+import { useFavorites } from '../contexts/FavoritesContext';
 import products from '../data/products';
 import styles from './FavoritesPage.module.css';
 
 function FavoritesPage() {
-  const { favorites, toggleFavorite } = useCart();
+  const { favorites, toggleFavorite } = useFavorites();
   const favoriteProducts = products.filter((product) => favorites.includes(product.id));
 
   if (favoriteProducts.length === 0) {
@@ -28,6 +28,7 @@ function FavoritesPage() {
             </Link>
             <div className={styles.content}>
               <h2>{product.name}</h2>
+              <p>{product.gender} · {product.category}</p>
               <p>{product.price.toLocaleString('ru-RU')} ₽</p>
               <button onClick={() => toggleFavorite(product.id)}>Удалить</button>
             </div>

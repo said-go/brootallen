@@ -1,17 +1,15 @@
 import { useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useCart } from '../contexts/CartContext';
+import { useFavorites } from '../contexts/FavoritesContext';
 import products from '../data/products';
 import styles from './ProductPage.module.css';
 
 function ProductPage() {
   const { id } = useParams();
-  const { addToCart, favorites, toggleFavorite } = useCart();
+  const { favorites, toggleFavorite } = useFavorites();
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedSize, setSelectedSize] = useState('');
-  const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
-  const [added, setAdded] = useState(false);
 
   const product = useMemo(() => products.find((item) => item.id === Number(id)), [id]);
   const similarProducts = useMemo(
@@ -29,17 +27,6 @@ function ProductPage() {
   }
 
   const isFavorite = favorites.includes(product.id);
-  const canAddToCart = product.inStock && selectedColor && selectedSize;
-
-  const handleAddToCart = () => {
-    if (!canAddToCart) {
-      return;
-    }
-
-    addToCart({ ...product, selectedColor, selectedSize }, quantity);
-    setAdded(true);
-  };
-
   return (
     <div className={`container ${styles.page}`}>
       <div className={styles.grid}>
@@ -55,7 +42,7 @@ function ProductPage() {
         </div>
 
         <div className={styles.details}>
-          <p className={styles.eyebrow}>{product.category}</p>
+          <p className={styles.eyebrow}>{product.gender} · {product.category}</p>
           <h1>{product.name}</h1>
           <div className={styles.priceRow}>
             <div>
@@ -88,25 +75,13 @@ function ProductPage() {
             </div>
           </div>
 
-          <div className={styles.optionBlock}>
-            <h2>Количество</h2>
-            <div className={styles.quantityBox}>
-              <button onClick={() => setQuantity((value) => Math.max(1, value - 1))} aria-label="Уменьшить количество">−</button>
-              <span>{quantity}</span>
-              <button onClick={() => setQuantity((value) => value + 1)} aria-label="Увеличить количество">+</button>
-            </div>
-          </div>
-
           <div className={styles.actions}>
-            <button className={styles.primaryButton} onClick={handleAddToCart} disabled={!canAddToCart}>
-              {product.inStock ? 'Добавить в корзину' : 'Нет в наличии'}
-            </button>
+            <Link className={styles.primaryButton} to="/contacts">{product.inStock ? 'Запросить примерку' : 'Уточнить поступление'}</Link>
             <button className={styles.secondaryButton} onClick={() => toggleFavorite(product.id)}>
               {isFavorite ? 'Удалить из избранного' : 'Добавить в избранное'}
             </button>
           </div>
-          {added ? <p className={styles.description}>Товар добавлен в корзину.</p> : null}
-          {!canAddToCart && product.inStock ? <p className={styles.description}>Выберите цвет и размер перед добавлением.</p> : null}
+          {selectedColor && selectedSize ? <p className={styles.description}>Выбран вариант: {selectedColor}, размер {selectedSize}.</p> : null}
 
           <div className={styles.metaBox}>
             <p><strong>Состав:</strong> {product.material}</p>

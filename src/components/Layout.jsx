@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import { useCart } from '../contexts/CartContext';
 import styles from './Layout.module.css';
 
 const navItems = [
@@ -13,7 +12,6 @@ const navItems = [
 
 function Layout() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { totalItems } = useCart();
 
   return (
     <>
@@ -33,9 +31,6 @@ function Layout() {
                 {item.label}
               </NavLink>
             ))}
-            <NavLink to="/cart" className={styles.navLink} onClick={() => setMenuOpen(false)}>
-              Корзина {totalItems > 0 ? `(${totalItems})` : ''}
-            </NavLink>
           </nav>
           <button
             className={styles.menuButton}

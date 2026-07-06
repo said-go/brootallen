@@ -3,6 +3,7 @@ const products = [
     id: 1,
     name: 'Пальто Obsidian',
     category: 'Верхняя одежда',
+    gender: 'Женское',
     price: 9800,
     oldPrice: 12900,
     description: 'Премиальное шерстяное пальто с точной посадкой, мягкой линией плеча и бархатистой фактурой.',
@@ -20,7 +21,8 @@ const products = [
   {
     id: 2,
     name: 'Шелковая рубашка Noir',
-    category: 'Мужское',
+    category: 'Костюм',
+    gender: 'Мужское',
     price: 4200,
     oldPrice: 5600,
     description: 'Легкая рубашка из шелка с минималистичным кроем, матовым блеском и приятной текстурой.',
@@ -38,7 +40,8 @@ const products = [
   {
     id: 3,
     name: 'Платье Velvet Evening',
-    category: 'Женское',
+    category: 'Костюм',
+    gender: 'Женское',
     price: 7600,
     oldPrice: 9500,
     description: 'Вечернее платье с бархатным блеском, мягкой драпировкой и выразительным силуэтом.',
@@ -57,6 +60,7 @@ const products = [
     id: 4,
     name: 'Сумка Ashline Tote',
     category: 'Аксессуары',
+    gender: 'Унисекс',
     price: 6400,
     oldPrice: 7900,
     description: 'Структурированная сумка из мягкой кожи с продуманной внутренней организацией.',
@@ -74,7 +78,8 @@ const products = [
   {
     id: 5,
     name: 'Свитер Monarch Wool',
-    category: 'Мужское',
+    category: 'Верхняя одежда',
+    gender: 'Мужское',
     price: 5500,
     oldPrice: 7000,
     description: 'Уютный свитер из мериноса с плотной вязкой, чистой линией и спокойным премиальным характером.',
@@ -92,7 +97,8 @@ const products = [
   {
     id: 6,
     name: 'Трикотажный сет Eclipse',
-    category: 'Женское',
+    category: 'Нижняя одежда',
+    gender: 'Женское',
     price: 4900,
     oldPrice: 6200,
     description: 'Комплект из мягкого трикотажа для вечерних прогулок, путешествий и городского стиля.',
@@ -111,6 +117,7 @@ const products = [
     id: 7,
     name: 'Тренч Cinder',
     category: 'Верхняя одежда',
+    gender: 'Мужское',
     price: 8900,
     oldPrice: 11200,
     description: 'Длинный тренч с мягкой драпировкой, аккуратным воротником и лаконичным силуэтом.',
@@ -129,6 +136,7 @@ const products = [
     id: 8,
     name: 'Подвеска Aurelia',
     category: 'Аксессуары',
+    gender: 'Женское',
     price: 2800,
     oldPrice: 3600,
     description: 'Минималистичный кулон из матового металла с тонкой отделкой и деликатным сиянием.',
@@ -146,7 +154,8 @@ const products = [
   {
     id: 9,
     name: 'Жакет Sculpted Wool',
-    category: 'Верхняя одежда',
+    category: 'Костюм',
+    gender: 'Мужское',
     price: 7600,
     oldPrice: 9400,
     description: 'Жакет с четкими линиями, свободной посадкой и плотной шерстяной фактурой.',
@@ -165,6 +174,7 @@ const products = [
     id: 10,
     name: 'Сумка Lumen Crossbody',
     category: 'Аксессуары',
+    gender: 'Унисекс',
     price: 3400,
     oldPrice: 4200,
     description: 'Компактная сумка с мягким ремнем, чистой формой и продуманным внутренним карманом.',
@@ -182,7 +192,8 @@ const products = [
   {
     id: 11,
     name: 'Блуза Ember Evening',
-    category: 'Женское',
+    category: 'Нижняя одежда',
+    gender: 'Женское',
     price: 4100,
     oldPrice: 5200,
     description: 'Блуза с тонкой драпировкой, мягким блеском и выразительной линией плеч.',
@@ -199,13 +210,14 @@ const products = [
   },
   {
     id: 12,
-    name: 'Шарф Contour Cashmere',
-    category: 'Аксессуары',
+    name: 'Лоферы Contour Leather',
+    category: 'Обувь',
+    gender: 'Унисекс',
     price: 2300,
     oldPrice: 2900,
-    description: 'Пледовый шарф из мягкого кашемира с минималистичным контуром и глубоким оттенком.',
-    sizes: ['One Size'],
-    colors: ['Mink', 'Ivory'],
+    description: 'Кожаные лоферы с мягкой стелькой, вытянутой линией носа и спокойным премиальным блеском.',
+    sizes: ['S', 'M', 'L'],
+    colors: ['Black', 'Mink'],
     images: [
       'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
       'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80'
@@ -213,7 +225,7 @@ const products = [
     isNew: false,
     isPopular: true,
     inStock: true,
-    material: 'Кашемир 100%'
+    material: 'Натуральная кожа 100%'
   }
 ];
 
