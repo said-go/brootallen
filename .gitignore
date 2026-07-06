@@ -1,5 +1,7 @@
 node_modules/
 dist/
 .gh-pages-deploy/
+/images/
+contact-sheet.jpg
 .env
 .env.local

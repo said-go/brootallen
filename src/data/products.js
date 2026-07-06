@@ -1,3 +1,5 @@
+const imagePath = (fileName) => `${import.meta.env.BASE_URL}images/${fileName}`;
+
 const products = [
   {
     id: 1,
@@ -10,8 +12,8 @@ const products = [
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Midnight', 'Cocoa'],
     images: [
-      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80'
+      imagePath('5258424002500303402.jpg'),
+      imagePath('5258424002500303404.jpg')
     ],
     isNew: true,
     isPopular: true,
@@ -29,8 +31,8 @@ const products = [
     sizes: ['S', 'M', 'L'],
     colors: ['Black', 'Ivory'],
     images: [
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80'
+      imagePath('5258424002500303413.jpg'),
+      imagePath('5258424002500303415.jpg')
     ],
     isNew: false,
     isPopular: true,
@@ -39,41 +41,41 @@ const products = [
   },
   {
     id: 3,
-    name: 'Платье Velvet Evening',
+    name: 'Костюм Noir Atelier',
     category: 'Костюм',
     gender: 'Женское',
     price: 7600,
     oldPrice: 9500,
-    description: 'Вечернее платье с бархатным блеском, мягкой драпировкой и выразительным силуэтом.',
-    sizes: ['XS', 'S', 'M'],
-    colors: ['Burgundy', 'Black'],
+    description: 'Чёрный костюм с мягкой линией пиджака, прямыми брюками и уверенной вечерней посадкой.',
+    sizes: ['S', 'M', 'L'],
+    colors: ['Black'],
     images: [
-      'https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80'
+      imagePath('5258424002500303397.jpg'),
+      imagePath('5258424002500303398.jpg')
     ],
     isNew: true,
     isPopular: false,
     inStock: true,
-    material: 'Вискоза 80%, полиэстер 20%'
+    material: 'Шерсть 70%, вискоза 30%'
   },
   {
     id: 4,
-    name: 'Сумка Ashline Tote',
+    name: 'Кепка Ashline',
     category: 'Аксессуары',
     gender: 'Унисекс',
     price: 6400,
     oldPrice: 7900,
-    description: 'Структурированная сумка из мягкой кожи с продуманной внутренней организацией.',
+    description: 'Лаконичная кепка с плотной посадкой, аккуратной фактурой и спокойным премиальным оттенком.',
     sizes: ['One Size'],
-    colors: ['Ash', 'Black'],
+    colors: ['Black', 'Graphite'],
     images: [
-      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80'
+      imagePath('5334774008328689930.jpg'),
+      imagePath('5334774008328689934.jpg')
     ],
     isNew: false,
     isPopular: true,
     inStock: false,
-    material: 'Натуральная кожа 100%'
+    material: 'Хлопок 70%, полиэстер 30%'
   },
   {
     id: 5,
@@ -86,8 +88,8 @@ const products = [
     sizes: ['M', 'L', 'XL'],
     colors: ['Graphite', 'Mauve'],
     images: [
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80'
+      imagePath('5258424002500303426.jpg'),
+      imagePath('5258424002500303428.jpg')
     ],
     isNew: true,
     isPopular: true,
@@ -105,8 +107,8 @@ const products = [
     sizes: ['XS', 'S', 'M', 'L'],
     colors: ['Espresso', 'Pearl'],
     images: [
-      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80'
+      imagePath('5258424002500303406.jpg'),
+      imagePath('5258424002500303407.jpg')
     ],
     isNew: false,
     isPopular: true,
@@ -124,8 +126,8 @@ const products = [
     sizes: ['S', 'M', 'L'],
     colors: ['Cinder', 'Stone'],
     images: [
-      'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80'
+      imagePath('5258424002500303399.jpg'),
+      imagePath('5258424002500303400.jpg')
     ],
     isNew: true,
     isPopular: false,
@@ -134,22 +136,22 @@ const products = [
   },
   {
     id: 8,
-    name: 'Подвеска Aurelia',
+    name: 'Кепка Aurelia',
     category: 'Аксессуары',
     gender: 'Женское',
     price: 2800,
     oldPrice: 3600,
-    description: 'Минималистичный кулон из матового металла с тонкой отделкой и деликатным сиянием.',
+    description: 'Кепка в тёплом бежевом оттенке с чистой формой и тонкой отделкой.',
     sizes: ['One Size'],
-    colors: ['Gold', 'Silver'],
+    colors: ['Gold', 'Ivory'],
     images: [
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80'
+      imagePath('5334774008328689941.jpg'),
+      imagePath('5334774008328689942.jpg')
     ],
     isNew: false,
     isPopular: true,
     inStock: true,
-    material: 'Латунь, позолота'
+    material: 'Хлопок 80%, эластан 20%'
   },
   {
     id: 9,
@@ -162,8 +164,8 @@ const products = [
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Coal', 'Camel'],
     images: [
-      'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80'
+      imagePath('5334774008328689918.jpg'),
+      imagePath('5334774008328689919.jpg')
     ],
     isNew: false,
     isPopular: true,
@@ -172,22 +174,22 @@ const products = [
   },
   {
     id: 10,
-    name: 'Сумка Lumen Crossbody',
+    name: 'Кепка Lumen',
     category: 'Аксессуары',
     gender: 'Унисекс',
     price: 3400,
     oldPrice: 4200,
-    description: 'Компактная сумка с мягким ремнем, чистой формой и продуманным внутренним карманом.',
+    description: 'Минималистичная кепка с мягким козырьком и глубоким матовым оттенком.',
     sizes: ['One Size'],
     colors: ['Black', 'Taupe'],
     images: [
-      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80'
+      imagePath('5334774008328689931.jpg'),
+      imagePath('5334774008328689932.jpg')
     ],
     isNew: true,
     isPopular: false,
     inStock: true,
-    material: 'Натуральная кожа 100%'
+    material: 'Хлопок 70%, полиэстер 30%'
   },
   {
     id: 11,
@@ -200,8 +202,8 @@ const products = [
     sizes: ['XS', 'S', 'M', 'L'],
     colors: ['Rose', 'Cream'],
     images: [
-      'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=80'
+      imagePath('5258424002500303422.jpg'),
+      imagePath('5258424002500303423.jpg')
     ],
     isNew: true,
     isPopular: false,
@@ -219,8 +221,8 @@ const products = [
     sizes: ['S', 'M', 'L'],
     colors: ['Black', 'Mink'],
     images: [
-      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80',
-      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80'
+      imagePath('5357499384666462324.jpg'),
+      imagePath('5357499384666462325.jpg')
     ],
     isNew: false,
     isPopular: true,

@@ -32,8 +32,8 @@ function HomePage() {
           </div>
           <div className={styles.heroImageWrap}>
             <img
-              src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1100&q=80"
-              alt="Премиальная витрина одежды"
+              src={`${import.meta.env.BASE_URL}images/5258424002500303397.jpg`}
+              alt="Премиальный костюм в бутике"
               className={styles.heroImage}
             />
           </div>
