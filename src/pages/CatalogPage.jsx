@@ -7,7 +7,7 @@ import styles from './CatalogPage.module.css';
 const genders = ['Женское', 'Мужское', 'Унисекс'];
 const categories = ['Аксессуары', 'Обувь', 'Костюм', 'Верхняя одежда', 'Нижняя одежда'];
 const sizes = ['XS', 'S', 'M', 'L', 'XL', 'One Size'];
-const colors = ['Black', 'Burgundy', 'Ash', 'Gold', 'Ivory', 'Midnight', 'Cocoa', 'Graphite', 'Cinder'];
+const colors = ['Black', 'Ash', 'Stone', 'Midnight', 'Ivory', 'Cream', 'Cocoa', 'Brown', 'Graphite', 'Gold', 'Sand', 'Olive', 'Mink'];
 const maxPrice = Math.max(...products.map((product) => product.price));
 
 function CatalogPage() {
